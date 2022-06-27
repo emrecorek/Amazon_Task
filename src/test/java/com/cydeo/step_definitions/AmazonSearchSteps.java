@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.AmazonMainPage;
+import com.cydeo.pages.AmazonProductPage;
 import com.cydeo.pages.AmazonSearchPage;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
@@ -13,6 +14,7 @@ public class AmazonSearchSteps {
 
     AmazonMainPage mainPage = new AmazonMainPage();
     AmazonSearchPage searchPage = new AmazonSearchPage();
+    AmazonProductPage product = new AmazonProductPage();
 
     @Given("User is on Amazon page")
     public void userIsOnAmazonPage() {
@@ -28,6 +30,8 @@ public class AmazonSearchSteps {
     @And("User clicks first product")
     public void userClicksFirstProduct() {
         searchPage.firstProduct.click();
+
+        product.productInformation();
     }
 
 
