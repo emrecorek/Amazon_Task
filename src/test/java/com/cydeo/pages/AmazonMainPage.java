@@ -17,7 +17,4 @@ public class AmazonMainPage {
     @FindBy (id = "twotabsearchtextbox")
     public WebElement searchBox;
 
-    @FindBy(id = "nav-search-submit-button")
-    public WebElement searchButton;
-
 }

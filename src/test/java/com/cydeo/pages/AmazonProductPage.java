@@ -31,8 +31,6 @@ public class AmazonProductPage {
     @FindBy(xpath = "//li[starts-with(@id,'size_name')]")
     public List<WebElement> productsAllSize;
 
-
-
     public void productInformation() {
 
         String productName = this.productName.getText();

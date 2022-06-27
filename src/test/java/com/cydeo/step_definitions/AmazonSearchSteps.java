@@ -27,8 +27,6 @@ public class AmazonSearchSteps {
     @When("User search product {string}")
     public void userSearchProduct(String product) {
         mainPage.searchBox.sendKeys(product + Keys.ENTER);
-       // mainPage.searchButton.click();
-
     }
 
     @And("User clicks first product")
@@ -36,7 +34,6 @@ public class AmazonSearchSteps {
         WaitUtils.waitVisibilityOfElement(searchPage.firstProduct);
         searchPage.firstProduct.click();
     }
-
 
     @Then("User sees product information")
     public void userSeesProductInformation() {
