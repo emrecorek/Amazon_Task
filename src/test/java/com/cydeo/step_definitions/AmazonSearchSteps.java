@@ -7,6 +7,7 @@ import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 
@@ -24,15 +25,19 @@ public class AmazonSearchSteps {
 
     @When("User search product {string}")
     public void userSearchProduct(String product) {
-        mainPage.searchBox.sendKeys(product + Keys.ENTER);
+        mainPage.searchBox.sendKeys(product);
+        mainPage.searchButton.click();
+
     }
 
     @And("User clicks first product")
     public void userClicksFirstProduct() {
         searchPage.firstProduct.click();
-
-        product.productInformation();
     }
 
 
+    @Then("User sees product information")
+    public void userSeesProductInformation() {
+        product.productInformation();
+    }
 }

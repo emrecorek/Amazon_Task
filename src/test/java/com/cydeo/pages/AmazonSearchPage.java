@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AmazonSearchPage {
 
-    public AmazonSearchPage(){
+    public AmazonSearchPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy (xpath = "//img[@class]")
+    @FindBy(xpath = "//img[@class]")
     public WebElement firstProduct;
 }

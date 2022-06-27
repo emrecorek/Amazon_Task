@@ -5,3 +5,4 @@ Feature: Amazon search feature
     Given User is on Amazon page
     When User search product "iPhone13 512"
     And User clicks first product
+    Then User sees product information

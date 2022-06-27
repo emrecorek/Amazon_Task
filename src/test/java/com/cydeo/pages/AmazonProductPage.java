@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AmazonProductPage {
 
-    public AmazonProductPage(){
+    public AmazonProductPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -26,7 +26,7 @@ public class AmazonProductPage {
     @FindBy(xpath = "//span[@class='a-price aok-align-center']")
     public WebElement price;
 
-    public void productInformation(){
+    public void productInformation() {
 
         String productName = this.productName.getText();
         productName = productName.substring(0, productName.indexOf("("));
@@ -35,6 +35,7 @@ public class AmazonProductPage {
         String color = this.color.getText();
         String stockStatus = this.stockStatus.getText();
         String price = this.price.getText();
+        price = price.replace("\n", ",");
 
         System.out.println(productName + " Size:" + size + "\nColor:" + color + "  Price:" + price + "\nStock:" + stockStatus);
 
