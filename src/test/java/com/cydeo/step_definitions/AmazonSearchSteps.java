@@ -5,6 +5,7 @@ import com.cydeo.pages.AmazonProductPage;
 import com.cydeo.pages.AmazonSearchPage;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+import com.cydeo.utilities.WaitUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -25,19 +26,20 @@ public class AmazonSearchSteps {
 
     @When("User search product {string}")
     public void userSearchProduct(String product) {
-        mainPage.searchBox.sendKeys(product);
-        mainPage.searchButton.click();
+        mainPage.searchBox.sendKeys(product + Keys.ENTER);
+       // mainPage.searchButton.click();
 
     }
 
     @And("User clicks first product")
     public void userClicksFirstProduct() {
+        WaitUtils.waitVisibilityOfElement(searchPage.firstProduct);
         searchPage.firstProduct.click();
     }
 
 
     @Then("User sees product information")
     public void userSeesProductInformation() {
-        product.productInformation();
+        product.getProductsInformation();
     }
 }

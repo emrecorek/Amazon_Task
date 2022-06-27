@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class AmazonProductPage {
 
     public AmazonProductPage() {
@@ -26,10 +28,15 @@ public class AmazonProductPage {
     @FindBy(xpath = "//span[@class='a-price aok-align-center']")
     public WebElement price;
 
+    @FindBy(xpath = "//li[starts-with(@id,'size_name')]")
+    public List<WebElement> productsAllSize;
+
+
+
     public void productInformation() {
 
         String productName = this.productName.getText();
-        productName = productName.substring(0, productName.indexOf("("));
+        productName = productName.substring(productName.indexOf(" ")+1, productName.indexOf("("));
 
         String size = this.size.getText();
         String color = this.color.getText();
@@ -40,6 +47,15 @@ public class AmazonProductPage {
         System.out.println(productName + " Size:" + size + "\nColor:" + color + "  Price:" + price + "\nStock:" + stockStatus);
 
     }
+
+    public void getProductsInformation(){
+        for (WebElement size : productsAllSize) {
+            size.click();
+            productInformation();
+        }
+    }
+
+
 
 
 }
